@@ -1,4 +1,4 @@
-Magento Backend Movie Catalog Challange
+Magento Backend Movie Catalog Challenge
 =======================================
 
 You need to develop a Magento 2 Module that will add the following features:
