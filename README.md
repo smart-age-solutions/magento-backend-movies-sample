@@ -3,7 +3,7 @@ Magento Backend Movie Catalog Challenge
 
 You need to develop a Magento 2 Module that will add the following features:
 
-__The site owner can__:
+__The site owner can do ( admin )__:
 
 * Add a new movie to the catalog
 * Edit a movie on the catalog
