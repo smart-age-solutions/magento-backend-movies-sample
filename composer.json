@@ -1,0 +1,25 @@
+{
+    "name": "smart-age-solutions/magento-backend-movies-sample",
+    "description": "Magento Backend Movie Catalog Challenge",
+    "type": "magento2-module",
+    "license": [
+        "proprietary"
+    ],
+    "authors":[
+        {
+            "name":"Weverson Cachinsky",
+            "email":"weversoncachinsky@gmail.com"
+        }
+    ],
+    "require": {
+        "php-tmdb/api": "^2.1"
+    },
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Sas\\Movies\\": ""
+        }
+    }
+}
