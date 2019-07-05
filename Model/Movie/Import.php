@@ -5,8 +5,9 @@ use Magento\Catalog\Api\Data\ProductInterfaceFactory;
 use Magento\Catalog\Api\ProductRepositoryInterface;
 use Magento\Catalog\Model\Product\Visibility;
 use Magento\Catalog\Model\ResourceModel\Product as ProductResource;
+use Magento\Framework\DataObject\IdentityInterface;
+use Magento\Framework\Event\ManagerInterface;
 use Magento\Store\Model\StoreManagerInterface;
-use Sas\Movies\Api\Data\MovieInterface;
 
 class Import
 {
@@ -30,22 +31,28 @@ class Import
      * @var Import\Image
      */
     private $image;
+    /**
+     * @var ManagerInterface
+     */
+    private $eventManager;
 
     public function __construct(
         StoreManagerInterface $storeManager,
         ProductResource $productResource,
         ProductInterfaceFactory $productInterfaceFactory,
         ProductRepositoryInterface $productRepository,
-        Import\Image $image
+        Import\Image $image,
+        ManagerInterface $eventManager
     ) {
         $this->storeManager = $storeManager;
         $this->productResource = $productResource;
         $this->productFactory = $productInterfaceFactory;
         $this->productRepository = $productRepository;
         $this->image = $image;
+        $this->eventManager = $eventManager;
     }
 
-    public function execute(MovieInterface $movie)
+    public function execute(\Tmdb\Model\Movie $movie)
     {
         try {
             /** @var \Magento\Catalog\Model\Product $product */
@@ -69,11 +76,26 @@ class Import
         $product->setName($movie->getTitle());
         $product->setDescription($movie->getOverview());
 
-        $this->productRepository->save($product);
+        $product = $this->productRepository->save($product);
 
-        $image = $movie->getPosterPath();
-        if ($image) {
-            $this->image->import($product, $image);
-        }
+        $images = array_unique([
+            $movie->getPosterImage()->getFilePath(),
+            $movie->getImages()->filterBestVotedImage()->getFilePath()
+        ]);
+
+        $this->image->import($product, $images);
+
+        /**
+         * Flush FPC
+         */
+        $fpcObject = new class implements IdentityInterface {
+            public function getIdentities()
+            {
+                return \Sas\Movies\Block\Result::$identities;
+            }
+        };
+        $this->eventManager->dispatch('clean_cache_by_tags', ['object' => $fpcObject]);
+
+        return $product;
     }
 }

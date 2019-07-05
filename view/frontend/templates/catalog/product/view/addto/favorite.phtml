@@ -1,0 +1,11 @@
+<?php
+/** @var \Sas\Movies\Block\Catalog\Product\View\AddTo\Favorite $block */
+?>
+<a href="<?= $block->escapeUrl($block->getFavoriteUrl()) ?>" class="action towishlist">
+    <span>
+        <?= $block->escapeHtml(__('Favorite')) ?>
+        <?php if ($block->getFavoriteCount()):?>
+            (<?= $block->escapeHtml($block->getFavoriteCount()) ?>)
+        <?php endif; ?>
+    </span>
+</a>

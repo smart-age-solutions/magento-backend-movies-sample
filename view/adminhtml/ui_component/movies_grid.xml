@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">movies_grid.movies_grid_data_source</item>
+        </item>
+    </argument>
+    <settings>
+        <spinner>movies_columns</spinner>
+        <deps>
+            <dep>movies_grid.movies_grid_data_source</dep>
+        </deps>
+    </settings>
+    <dataSource name="movies_grid_data_source" component="Magento_Ui/js/grid/provider">
+        <settings>
+            <storageConfig>
+                <param name="cacheRequests" xsi:type="boolean">false</param>
+                <param name="indexField" xsi:type="string">id</param>
+            </storageConfig>
+            <updateUrl path="mui/index/render"/>
+        </settings>
+        <aclResource>Magento_Catalog::products</aclResource>
+        <dataProvider class="Sas\Movies\Ui\DataProvider\Movies\Listing" name="movies_grid_data_source">
+            <settings>
+                <requestFieldName>id</requestFieldName>
+                <primaryFieldName>id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <listingToolbar name="listing_top">
+        <filters name="listing_filters">
+            <settings>
+                <childDefaults>
+                    <param name="provider" xsi:type="string">movies_grid.movies_grid.listing_top.listing_filters</param>
+                </childDefaults>
+                <statefull>
+                    <property name="applied" xsi:type="boolean">false</property>
+                </statefull>
+            </settings>
+        </filters>
+        <paging name="listing_paging" component="Sas_Movies/js/components/movies-grid-paging">
+            <settings>
+                <selectProvider>movies_grid.movies_grid.movies_columns.ids</selectProvider>
+            </settings>
+        </paging>
+    </listingToolbar>
+    <columns name="movies_columns">
+        <column name="thumbnail" class="Sas\Movies\Ui\Component\Listing\Columns\Thumbnail" component="Magento_Ui/js/grid/columns/thumbnail">
+            <settings>
+                <altField>title</altField>
+                <hasPreview>0</hasPreview>
+                <addField>true</addField>
+                <label translate="true">Thumbnail</label>
+                <sortable>false</sortable>
+            </settings>
+        </column>
+        <column name="title">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Movie Title</label>
+                <sortable>false</sortable>
+            </settings>
+        </column>
+        <actionsColumn name="actions" class="Sas\Movies\Ui\Component\Listing\Columns\Actions" sortOrder="200">
+            <settings>
+                <indexField>id</indexField>
+            </settings>
+        </actionsColumn>
+    </columns>
+</listing>

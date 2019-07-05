@@ -92,11 +92,9 @@ class Image
         $this->file = $file;
     }
 
-    public function import(\Magento\Catalog\Model\Product $product, string $fileName): bool
+    public function import(\Magento\Catalog\Model\Product $product, array $imageList): bool
     {
         $this->product = $product;
-
-        $imageList = [$fileName];
 
         $newImages = $this->getImagesNotInDatabase($imageList);
 
