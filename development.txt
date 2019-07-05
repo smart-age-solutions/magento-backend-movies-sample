@@ -1,1 +1,21 @@
+The connection to the API will be handled by a 3rd party library to speed up the development process.
 
+Admin area:
+ * Add a new movie to the catalog:
+   - Created a new product type: movie
+   - Admin can add a new product choosing "movie" from the Add Product button
+   - Admin can import the movie from the API (Only name, description and images are imported)
+   - After imported, the admin is redirected to the new product edit form
+ * Edit/Remove a movie on the catalog
+   - Admin can use the default functionality to edit or delete products
+ * See the top 10 favorites movie
+   - Admin can go to Catalog > Top 10 Movies to see the list
+
+Customer area:
+ * Search for a movie by catalog title
+   - Added a menu link to the movie catalog
+   - Added a plugin to the search form. If the customer is under the movie list, the search will be performed only for movies
+ * See a movie detail
+   - The same functionality of Magento product view is kept for movies. The only difference is that he cannot purchase it or see the price
+ * Mark the movie as one of the favorites
+   - For testing, the customer can favorite the same movie several times.
