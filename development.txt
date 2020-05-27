@@ -1,0 +1,14 @@
+Para a soluçao do problema, pensei em fazer algo simples, mas bem estruturado, e seguindo os padroes magento.
+Depois de habilitar o modulo, Siga para as configuraçoes.
+
+La foi criado um item de menu chamado MOVIES API, nele e possivel informar uma api key.
+O botao de Baixar so ficara habilitado apos o o campo api key estiver com valor salvo.
+pois utilizo essa key para realizar o get dos movies.
+
+Quando o botao finalizar o ajax, todos os produtos ja foram importados.
+
+#Pontos a se considerar
+-Criado proprio Client de conexao.
+-Uso correto de Block, Models, Controller
+-Nao foi utilizado object manager
+-Utilizando as PSR
