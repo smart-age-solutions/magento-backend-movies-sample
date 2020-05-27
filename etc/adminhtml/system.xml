@@ -4,7 +4,7 @@
         <tab id="movies" translate="label" sortOrder="10">
             <label>Movies API</label>
         </tab>
-        <section id="helloworld" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+        <section id="movies" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
             <class>separator-top</class>
             <label>Credenciais</label>
             <tab>movies</tab>
@@ -15,7 +15,7 @@
                     <label>Module Enable</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
-                <field id="display_text" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                <field id="api_key" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
                     <label>API key</label>
                     <comment>chave sera usada para se conectar a api de movies.</comment>
                 </field>
@@ -24,6 +24,7 @@
                 <field id="downloadmovie" translate="label" type="button" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Baixar Movies</label>
                     <frontend_model>Juniorfreitas\Movie\Block\System\Config\Collect</frontend_model>
+                    <comment>Informe uma API key e clique em Save Config para habilitar o botao de importaçao.</comment>
                 </field>
 
             </group>

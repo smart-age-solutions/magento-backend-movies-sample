@@ -3,6 +3,7 @@
 
 namespace Juniorfreitas\Movie\Block\System\Config;
 
+use Juniorfreitas\Movie\Model\Config;
 use Magento\Backend\Block\Template\Context;
 use Magento\Config\Block\System\Config\Form\Field;
 use Magento\Framework\Data\Form\Element\AbstractElement;
@@ -14,14 +15,17 @@ class Collect extends Field
      */
     protected $_template = 'Juniorfreitas_Movie::system/config/collect.phtml';
 
+    protected $model;
     /**
      * @param Context $context
      * @param array $data
      */
     public function __construct(
         Context $context,
-        array $data = []
+        array $data = [],
+        Config $model
     ) {
+        $this->_model = $model;
         parent::__construct($context, $data);
     }
 
@@ -71,6 +75,7 @@ class Collect extends Field
             [
                 'id' => 'collect_button',
                 'label' => __('Baixar'),
+                'disabled' => empty($this->_model->getApiKey()) ? 'disabled': ''
             ]
         );
 
