@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Juniorfreitas\Movie\Block\System\Config;
 
 use Juniorfreitas\Movie\Model\Config;
