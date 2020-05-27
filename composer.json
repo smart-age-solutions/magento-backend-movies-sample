@@ -4,12 +4,18 @@
     "require": {
         "php": "^7.2"
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/smart-age-solutions/magento-backend-movies-sample"
+        }
+    ],
     "autoload": {
-    "psr-4": {
-      "juniorfreitas\\movie\\": ""
-    },
-    "files": [
-      "registration.php"
-    ]
-  }
+        "psr-4": {
+          "juniorfreitas\\movie\\": ""
+        },
+        "files": [
+          "registration.php"
+        ]
+    }
 }
