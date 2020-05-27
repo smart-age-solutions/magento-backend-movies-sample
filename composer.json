@@ -1,0 +1,15 @@
+{
+    "name": "juniorfreitas2/movie",
+    "description": "module for test",
+    "require": {
+        "php": "^7.2"
+    },
+    "autoload": {
+    "psr-4": {
+      "juniorfreitas\\movie\\": ""
+    },
+    "files": [
+      "registration.php"
+    ]
+  }
+}
