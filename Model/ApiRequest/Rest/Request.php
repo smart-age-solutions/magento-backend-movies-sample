@@ -4,7 +4,7 @@ namespace Juniorfreitas\Movie\Model\ApiRequest\Rest;
 
 use Juniorfreitas\Movie\Model\ApiRequest\Api\RequestInterface;
 
-class Request implements RequestInterface
+class Request extends \Magento\Framework\DataObject implements RequestInterface
 {
     const METHOD    = 'method';
     const URI       = 'uri';
@@ -60,6 +60,17 @@ class Request implements RequestInterface
     {
         $this->setData(static::PARAMS, $value);
         return $this;
+    }
+
+    public function getParamsToQueryString()
+    {
+        $param = '';
+
+        foreach ($this->getData(static::PARAMS) as $key => $item) {
+            $param.= $key.'='.$item;
+        }
+
+        return $param;
     }
 }
 
