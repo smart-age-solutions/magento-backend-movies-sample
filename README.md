@@ -1,3 +1,11 @@
+``` 
+composer require juniorfreitas2/movie:dev-master
+
+bin/magento module:enable Juniorfreitas_Movie    // Ativa o módulo
+bin/magento setup:upgrade                        // Registra a extensão
+bin/magento setup:di:compile                     // Recompila o projeto Magento
+```
+
 Magento Backend Movie Catalog Challenge
 =======================================
 
