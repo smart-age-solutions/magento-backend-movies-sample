@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Aislan
+ *
+ * NOTICE OF LICENSE
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to aislan.cedraz@gmail.com.br for more information.
+ *
+ * @module      Aislan Movie Catalog
+ * @category    Aislan
+ * @package     Aislan_MovieCatalog
+ *
+ * @copyright   Copyright (c) 2020 Aislan.
+ *
+ * @author      Aislan Core Team <aislan.cedraz@gmail.com.br>
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Aislan\MovieCatalog\Api\Service\TMDApiServiceInterface"
+                type="Aislan\MovieCatalog\Service\TMDApiService"/>
+    <preference for="Aislan\MovieCatalog\Api\GenreInterface"
+                type="Aislan\MovieCatalog\Model\Genre"/>
+    <preference for="Aislan\MovieCatalog\Api\GenreRepositoryInterface"
+                type="Aislan\MovieCatalog\Model\GenreRepository" />
+    <preference for="Aislan\MovieCatalog\Api\Data\GenreInterface"
+                type="Aislan\MovieCatalog\Model\Genre" />
+    <preference for="Aislan\MovieCatalog\Api\Data\GenreSearchResultInterface"
+                type="Aislan\MovieCatalog\Model\GenreSearchResult" />
+    <preference for="Aislan\MovieCatalog\Api\Data\MovieEntitySearchResultInterface"
+                type="Aislan\MovieCatalog\Model\MovieEntitySearchResult" />
+    <preference for="Aislan\MovieCatalog\Api\Data\MovieApiInterface"
+                type="Aislan\MovieCatalog\Model\MovieApi"/>
+    <preference for="Aislan\MovieCatalog\Api\MovieApiRepositoryInterface"
+                type="Aislan\MovieCatalog\Model\MovieApiRepository"/>
+    <preference for="Aislan\MovieCatalog\Api\MovieApiRepositoryInterface"
+                type="Aislan\MovieCatalog\Model\MovieApiRepository"/>
+    <preference for="Aislan\MovieCatalog\Api\UpdateCatalogMovieInterface"
+                type="Aislan\MovieCatalog\Model\UpdateCatalogMovie"/>
+    <preference for="Aislan\MovieCatalog\Api\MovieGenreRepositoryInterface"
+                type="Aislan\MovieCatalog\Model\MovieGenreRepository"/>
+    <preference for="Aislan\MovieCatalog\Api\Data\MovieGenreSearchResultInterface"
+                type="Aislan\MovieCatalog\Model\MovieGenreSearchResult"/>
+    <preference for="Aislan\MovieCatalog\Api\Data\MovieGenreInterface"
+                type="Aislan\MovieCatalog\Model\MovieGenre"/>
+    <preference for="Aislan\MovieCatalog\Api\MovieEntityRepositoryInterface"
+                type="Aislan\MovieCatalog\Model\MovieEntityRepository"/>
+    <preference for="Aislan\MovieCatalog\Api\Data\MovieEntityInterface"
+                type="Aislan\MovieCatalog\Model\MovieEntity"/>
+    <type name="Aislan\MovieCatalog\Console\Command\UpdateMovies">
+        <arguments>
+            <argument name="name" xsi:type="string">catalog:movies:update</argument>
+        </arguments>
+    </type>
+    <type name="Magento\Framework\Console\CommandList">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="catalog_movie_update" xsi:type="object">Aislan\MovieCatalog\Console\Command\UpdateMovies</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="aislan_moviecatalog_movie_entity_listing_data_source" xsi:type="string">Aislan\MovieCatalog\Model\ResourceModel\MovieEntity\Grid\Collection</item>
+                <item name="aislan_moviecatalog_movie_api_listing_data_source" xsi:type="string">Aislan\MovieCatalog\Model\ResourceModel\MovieApi\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="Aislan\MovieCatalog\Model\ResourceModel\MovieEntity\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">catalog_movie_entity</argument>
+            <argument name="resourceModel" xsi:type="string">Aislan\MovieCatalog\Model\ResourceModel\MovieEntity\Collection</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Aislan\MovieCatalog\Model\ResourceModel\MovieApi\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">catalog_movie_api</argument>
+            <argument name="resourceModel" xsi:type="string">Aislan\MovieCatalog\Model\ResourceModel\MovieApi\Collection</argument>
+        </arguments>
+    </virtualType>
+</config>
