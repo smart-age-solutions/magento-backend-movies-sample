@@ -1,0 +1,78 @@
+<?php $collection = $this->getCollection(); ?>
+<?php if ($collection): ?>
+
+<div class="content-heading">
+    <h2 class="title">Top Movies</h2>
+    <p class="info">Here are the best rated movies</p>
+</div>
+
+<div class="block widget block-bestseller-products grid">
+	<div class="block-content">
+    	<div class="products-grid grid">
+        	<ol class="product-items">
+            	<?php $iterator = 1; ?>
+            	<?php foreach ($collection as $_product): ?>
+                	<?php echo($iterator++ == 1) ? '<li class="product-item">' : '</li><li class="product-item">' ?>
+                	<div class="product-item-info">
+                    	<?php
+                            $image_url = $this->getProductImageUrl($_product);
+                    	?>
+                    	<a href="<?php  echo $_product->getProductUrl() ?>" class="product-item-photo">
+                        	<img src="<?php echo  $image_url;?>" alt="<?php echo $this->escapeHtml($_product->getName()) ?>" />
+                    	</a>
+                    	<div class="product-item-details">
+                        	<strong class="product-item-name">
+                            	<a title="<?php echo $block->escapeHtml($_product->getName()) ?>"
+                               	href="<?php echo $_product->getProductUrl() ?>"
+                               	class="product-item-link">
+                                	<?php echo $block->escapeHtml($_product->getName()) ?>
+                            	</a>
+                        	</strong>
+                        	<?php
+                        	echo $this->getProductPriceHtml($_product);
+                        	$postDataHelper = $this->helper('Magento\Framework\Data\Helper\PostHelper');
+                        	?>
+                        	<div class="product-item-actions">
+                            	<div class="actions-primary">
+                                	<?php if ($_product->isSaleable()): ?>
+                                    	<?php if ($_product->getTypeInstance()->hasRequiredOptions($_product)): ?>
+                                        	<button class="action tocart primary"
+                                                	data-mage-init='{"redirectUrl":{"url":"<?php  echo $block->getAddToCartUrl($_product) ?>"}}'
+                                                	type="button" title="<?php echo __('Add to Cart') ?>">
+                                            	<span><?php echo __('Add to Cart') ?></span>
+                                        	</button>
+                                    	<?php else: ?>
+                                        	<?php
+                                        	    $postCartData = $postDataHelper->getPostData($block->getAddToCartUrl($_product), ['product' => $_product->getId()]);
+                                        	?>
+                                        	<button class="action tocart primary"
+                                                	data-post='<?php echo $postCartData; ?>'
+                                                	type="button" title="<?php echo __('Add to Cart') ?>">
+                                            	<span><?php echo __('Add to Cart') ?></span>
+                                        	</button>
+                                    	<?php endif; ?>
+                                	<?php else: ?>
+                                    	<?php if ($_product->getIsSalable()): ?>
+                                        	<div class="stock available"><span><?php echo __('In stock') ?></span></div>
+                                    	<?php else: ?>
+                                        	<div class="stock unavailable"><span><?php echo __('Out of stock') ?></span></div>
+                                    	<?php endif; ?>
+                                	<?php endif; ?>
+                            	</div>
+                                <div class="actions-secondary">
+                                    <?php
+                                        $postWishlistData = $postDataHelper->getPostData($block->getAddToWishlistUrl($_product), ['product' => $_product->getId()]);
+                                    ?>
+                                    <a href="#" data-post='<?php echo $postWishlistData; ?>' class="action tofavorite" data-action="add-to-wishlist" title="Add to Wish List">
+                                        <span>Add to Wish List</span>
+                                    </a>
+                                </div>
+                        	</div>
+                    	</div>
+                	</div>
+                	<?php echo($iterator == count($collection)+1) ? '</li>' : '' ?>
+            	<?php endforeach ?>
+        	</ol>
+    	</div>
+    </div>
+<?php endif;?>

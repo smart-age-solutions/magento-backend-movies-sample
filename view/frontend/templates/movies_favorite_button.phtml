@@ -1,0 +1,8 @@
+<?php
+    $postDataHelper = $this->helper('Magento\Framework\Data\Helper\PostHelper');
+    $_product = $this->getProduct();
+    $postWishlistData = $postDataHelper->getPostData($this->getAddToWishlistUrl($_product), ['product' => $_product->getId()]);
+?>
+<?php if($_product->getIsMovie()): ?>
+    <a href="#" data-post='<?php echo $postWishlistData; ?>' data-role="add-to-favorites" class="action tofavorite tocompare"><span>Add to Favorite</span></a>
+<?php endif; ?>

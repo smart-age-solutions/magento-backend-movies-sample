@@ -1,0 +1,27 @@
+<div class="admin__data-grid-header-row row row-gutter show-with-results" style="display: none;">
+    <div class="col-xs-12">
+        <div class="row">
+            <!-- Records found -->
+            <div class="col-xs-3">
+                <div class="admin__control-support-text" id="records-found-container">
+                    <span id="records-found"><?php echo __('Waiting search to show records, 0') ?></span> <span><?php echo __('records found'); ?></span>
+                </div>
+                <div class="admin__control-support-text" id="records-found-searching" style="display: none">
+                    <?php echo __('Searching...'); ?>
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <div class="col-xs-9">
+                <div class="admin__data-grid-pager-wrap">
+                    <div class="admin__data-grid-pager">
+                        <button class="action-previous" type="button" title="<?php echo __('Previous Page'); ?>" id="page-prev" disabled="disabled"></button>
+                        <input class="admin__control-text" type="number" name="search[page]" data-id="current-page-input" id="page_select" value="1">
+                        <label class="admin__control-support-text" for="page_select"><?php echo __('of'); ?> <span id="limit-page"></span></label>
+                        <button class="action-next" type="button" title="<?php echo __('Next Page'); ?>" id="page-next" disabled="disabled"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

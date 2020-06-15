@@ -1,0 +1,67 @@
+<?php
+    $defaultFilterValues = $this->getDefaultSearch();
+?>
+
+<div class="admin__data-grid-header-row">
+    <div class="admin__data-grid-filters-wrap _show" data-part="filter-form">
+        <form id="search-movie" action="<?php /* @escapeNotVerified */ echo $this->getUrl('movie/search/result') ?>" method="get">
+            <fieldset class="admin__fieldset admin__data-grid-filters">
+                <legend class="admin__filters-legend">
+                    <span><?php echo __('Advanced filter'); ?></span>
+                </legend>
+                <!-- Filter Fields -->
+                <!-- Title -->
+                <div class="admin__form-field">
+                    <label class="admin__form-field-label" for="filter-title">
+                        <span><?php echo __('Title'); ?> *</span>
+                    </label>
+                    <div class="admin__form-field-control">
+                        <input class="admin__control-text" type="text" name="query" maxlength="255" required>
+                    </div>
+                </div>
+
+                <!-- Language -->
+                <div class="admin__form-field">
+                    <label class="admin__form-field-label" for="filter-title">
+                        <span><?php echo __('Language'); ?> *</span>
+                    </label>
+                    <div class="admin__form-field-control">
+                        <input class="admin__control-text" type="text" name="language" maxlength="255" value="<?php echo $defaultFilterValues['language']; ?>" required>
+                    </div>
+                </div>
+
+                <!-- Include Adult -->
+                <div class="admin__form-field">
+                    <label class="admin__form-field-label" for="filter-title">
+                        <span><?php echo __('Include Adult'); ?> *</span>
+                    </label>
+                    <select class="admin__control-select" name="include_adult" aria-describedby="notice-filter-include_adult" required>
+                        <option data-title="<?php echo __('Yes'); ?>" value="true" <?php echo $defaultFilterValues['adult'] ? 'selected' : ''; ?>><?php echo __('Yes'); ?></option>
+                        <option data-title="<?php echo __('No'); ?>" value="false" <?php echo !$defaultFilterValues['adult'] ? 'selected' : ''; ?>><?php echo __('No'); ?></option>
+                    </select>
+                </div>
+
+                <!-- Year -->
+                <div class="admin__form-field">
+                    <label class="admin__form-field-label" for="filter-title">
+                        <span><?php echo __('Year'); ?></span>
+                    </label>
+                    <div class="admin__form-field-control">
+                        <input class="admin__control-text" type="text" name="year" id="filter-year" maxlength="255">
+                    </div>
+                </div>
+            </fieldset>
+
+            <small><?php echo __('(*) Required fields'); ?></small>
+
+            <div class="admin__data-grid-filters-footer">
+                <div class="admin__footer-main-actions">
+                    <button id="search-movie-btn" class="action-secondary" type="submit" data-action="grid-filter-apply" disabled="disabled">
+                        <span><?php echo __('Search Movie'); ?></span>
+                    </button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>

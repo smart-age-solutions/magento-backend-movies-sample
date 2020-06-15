@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+	<menu>
+		<add id="Lima_Movie::import"
+			 title="Movie Import"
+			 translate="title"
+			 module="Lima_Movie"
+			 parent="Magento_Catalog::catalog"
+			 sortOrder="50"
+			 dependsOnModule="Lima_Movie"
+			 resource="Lima_Movie::import" />
+
+		<add id="Lima_Movie::search"
+			 title="Search Movie"
+			 translate="title"
+			 module="Lima_Movie"
+			 parent="Lima_Movie::import"
+			 sortOrder="10"
+			 dependsOnModule="Lima_Movie"
+			 action="movie/search"
+			 resource="Lima_Movie::search" />
+
+		<add id="Lima_Movie::queue"
+			 title="Queue"
+			 translate="title"
+			 module="Lima_Movie"
+			 parent="Lima_Movie::import"
+			 sortOrder="15"
+			 dependsOnModule="Lima_Movie"
+			 action="movie/queue"
+			 resource="Lima_Movie::queue" />
+
+        <add id="Lima_Movie::favorite"
+			 title="Favorite List"
+			 translate="title"
+			 module="Lima_Movie"
+			 parent="Lima_Movie::import"
+			 sortOrder="17"
+			 dependsOnModule="Lima_Movie"
+			 action="movie/favorite"
+			 resource="Lima_Movie::favorite" />
+
+		<add id="Lima_Movie::configuration"
+             title="Configuration"
+			 translate="title"
+             module="Lima_Movie"
+             parent="Lima_Movie::import"
+             sortOrder="20"
+			 dependsOnModule="Lima_Movie"
+             action="adminhtml/system_config/edit/section/movie"
+             resource="Lima_Movie::configuration" />
+	</menu>
+</config>

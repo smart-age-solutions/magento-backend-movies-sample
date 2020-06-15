@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+	<system>
+		<tab id="lima" translate="label" sortOrder="10">
+			<label>Lima</label>
+		</tab>
+		<section id="movie" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+			<class>separator-top</class>
+			<label>Movie</label>
+			<tab>lima</tab>
+			<resource>Lima_Movie::configuration</resource>
+			<group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+				<label>General Configuration</label>
+				<field id="enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+					<label>Module Enable</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+				<field id="api_key" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+					<label>Api Key (themoviedb.org)</label>
+					<comment>Example: 603244ac50b0204a02fb957c31225b6b. You can find more accessing (https://developers.themoviedb.org/3/getting-started/introduction)</comment>
+				</field>
+				<field id="api_url" translate="label" type="text" sortOrder="15" showInDefault="1" showInWebsite="0" showInStore="0">
+					<label>Api Url</label>
+					<comment>Example: https://api.themoviedb.org</comment>
+				</field>
+				<field id="api_version" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+					<label>Api Version</label>
+					<comment>Example: 3</comment>
+				</field>
+				<field id="image_base_path" translate="label" type="text" sortOrder="22" showInDefault="1" showInWebsite="0" showInStore="0">
+					<label>Image Base Path</label>
+					<comment>Example: https://image.tmdb.org/t/p/w500</comment>
+				</field>
+				<field id="language" translate="label" type="text" sortOrder="25" showInDefault="1" showInWebsite="0" showInStore="0">
+					<label>Language</label>
+					<comment>Example: en-US</comment>
+				</field>
+				<field id="include_adult" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0">
+					<label>Include Adult</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+			</group>
+			<group id="movie_default" translate="label" type="text" sortOrder="15" showInDefault="1" showInWebsite="0" showInStore="0">
+				<label>Movie Default Values</label>
+				<field id="price" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+					<label>Default Price</label>
+					<comment>Example: 50.00</comment>
+				</field>
+				<field id="stock" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+					<label>Default Stock</label>
+					<comment>Example: 50</comment>
+				</field>
+				<field id="attribute_set_id" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+					<label>Movie Attribute Set</label>
+                    <source_model>Lima\Movie\Model\Config\Source\AttributeSet</source_model>
+                </field>
+			</group>
+		</section>
+	</system>
+</config>

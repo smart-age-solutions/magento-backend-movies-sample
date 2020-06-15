@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="Lima_Movie::import" title="Lima Movie" sortOrder="10">
+                    <resource id="Lima_Movie::search" title="Search" sortOrder="50"/>
+                    <resource id="Lima_Movie::queue" title="Queue" sortOrder="100"/>
+                    <resource id="Lima_Movie::favorite" title="Favorite" sortOrder="150"/>
+                    <resource id="Lima_Movie::configuration" title="Configuration" sortOrder="200"/>
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>

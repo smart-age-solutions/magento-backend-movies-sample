@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+	<default>
+		<movie>
+			<general>
+				<enable>1</enable>
+				<api_key>603244ac50b0204a02fb957c31225b6b</api_key>
+				<api_url>https://api.themoviedb.org</api_url>
+				<language>en-US</language>
+				<api_version>3</api_version>
+				<image_base_path>https://image.tmdb.org/t/p/w500</image_base_path>
+				<indluce_adult>0</indluce_adult>
+			</general>
+			<movie_default>
+				<price>55.50</price>
+				<stock>50</stock>
+			</movie_default>
+		</movie>
+	</default>
+</config>

@@ -1,0 +1,7 @@
+<config>
+    <group id="default">
+        <job name="movie_import_products" instance="Lima\Movie\Cron\QueueRun" method="execute">
+            <schedule>*/5 * * * *</schedule>
+        </job>
+    </group>
+</config>

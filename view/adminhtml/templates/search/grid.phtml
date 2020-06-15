@@ -1,0 +1,51 @@
+<!-- Grid -->
+<div id="results-grid" class="admin__data-grid-wrap show-with-results" style="display: none;">
+    <form id="import-grid-items">
+        <table class="data-grid data-grid-draggable" data-role="grid">
+           <thead>
+                <tr>
+                    <th class="data-grid-multicheck-cell">
+                        <div class="action-multicheck-wrap">
+                            <input class="admin__control-checkbox" type="checkbox" id="select_all">
+                            <label for="select_all"></label>
+                        </div>
+                    </th>
+
+                    <th class="data-grid-th _sortable _draggable">
+                        <span class="data-grid-cell-content">Poster</span>
+                    </th>
+
+                    <th class="data-grid-th _sortable _draggable _descend">
+                        <span class="data-grid-cell-content">ID</span>
+                    </th>
+
+                    <th class="data-grid-th _sortable _draggable">
+                        <span class="data-grid-cell-content">Price</span>
+                    </th>
+
+                    <th class="data-grid-th _sortable _draggable">
+                        <span class="data-grid-cell-content">Stock</span>
+                    </th>
+
+                    <th class="data-grid-th _sortable _draggable">
+                        <span class="data-grid-cell-content">Title</span>
+                    </th>
+
+                    <th class="data-grid-th _sortable _draggable">
+                        <span class="data-grid-cell-content">Adult</span>
+                    </th>
+
+                    <th class="data-grid-th _sortable _draggable">
+                        <span class="data-grid-cell-content">Release Date</span>
+                    </th>
+
+                    <th class="data-grid-th _sortable _draggable">
+                        <span class="data-grid-cell-content">Overview</span>
+                    </th>
+
+                </tr>
+            </thead>
+            <tbody id="movie-results"></tbody>
+        </table>
+    </form>
+</div>
