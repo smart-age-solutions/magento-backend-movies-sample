@@ -1,0 +1,15 @@
+Expend the first 2 weeks getting into the basics of magento and after this two weeks i was able
+to:
+At backoffice:
+- Create a config screen that user will be able to set API keys for the TMDB API.
+- Add a new movie using TMDB api through javascript. * The v4 api makes available a public token.
+- List all movies added at admin
+- Mass enable and disable of the added movies, i skip edit because all info came from api and the deletion to avoid cascade deletes
+.
+At front:
+ - list all movies from store
+ - see movie detail
+ - Add movie to favorite list
+ - Remove movie from favorite list
+
+- I was not able to finish the top 10 list and at front list favorite movies of the customer, i was try to make a join with magento collection but i was getting some errors.
