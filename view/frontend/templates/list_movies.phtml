@@ -1,0 +1,45 @@
+<?php
+/** @var \Peteleco\Movie\Block\ListMovies $block */
+
+?>
+<link type="text/css" href="https://unpkg.com/tailwindcss@1.4.6/dist/tailwind.min.css" rel="stylesheet">
+<style>
+    [class*=line-clamp-] {
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+    }
+
+    .line-clamp-2 {
+        -webkit-line-clamp: 2;
+    }
+</style>
+<div class="container">
+    <div class="text-2xl"><?php echo $block->getLabel(); ?></div>
+    <hr class="my-8">
+    <div class="flex flex-wrap">
+        <?php foreach ($block->getItems() as $item): ?>
+            <div class="mb-2 p-2 cursor-pointer  w-1/2 sm:w-1/3 md:w-1/4 p-2">
+                <a href="<?php echo $block->getUrl('movie/movie/view') . 'id/' . $item->getData('id'); ?>"
+                   class="block w-full p-2 flex-col bg-yellow-200 hover:bg-yellow-400 no-underline hover:no-underline">
+
+                    <div class="relative w-full">
+                        <img
+                            src="<?php echo $this->helper(\Peteleco\Movie\Helper\Data::class)->getFullPosterPath($item->getPosterPath()); ?>"
+                            class="w-full">
+                    </div>
+                    <div class="w-full bg-white px-2 py-2 h-20 bg-yellow-200">
+                        <div
+                            class="text-2xl justify-start text-lg line-clamp-2"><?php echo $item->getTitle(); ?></div>
+                    </div>
+                </a>
+            </div>
+        <?php endforeach; ?>
+    </div>
+
+    <?php if ($block->getPagerHtml()): ?>
+        <div class="order-products-toolbar toolbar bottom"><?php echo $block->getPagerHtml(); ?></div>
+    <?php else: ?>
+        <div class="message info empty"><span><?php echo __('No any record.'); ?></span></div>
+    <?php endif ?>
+</div>

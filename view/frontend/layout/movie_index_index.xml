@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <title>Movies</title>
+    </head>
+    <body>
+
+        <referenceBlock name="sale.reorder.sidebar" remove="true"/>
+        <referenceBlock name="wishlist_sidebar" remove="true"/>
+        <referenceBlock name="product.info.addto" remove="true" />
+        <referenceBlock name="view.addto.wishlist" remove="true" />
+        <referenceBlock name="page.main.title" remove="true" />
+        <referenceBlock name="catalog.compare.link" remove="true" />
+        <referenceBlock name="catalog.compare.sidebar" remove="true"/>
+        <referenceBlock name="catalogsearch.product.addto.compare" remove="true"/>
+        <referenceBlock name="category.product.addto.compare" remove="true"/>
+        <referenceBlock name="crosssell.product.addto.compare" remove="true" />
+        <referenceBlock name="related.product.addto.compare" remove="true" />
+        <referenceBlock name="upsell.product.addto.compare" remove="true" />
+        <referenceBlock name="view.addto.compare" remove="true" />
+
+        <referenceContainer name="content">
+            <referenceContainer name="columns">
+                <container name="div.sidebar.main" htmlTag="div" htmlClass="sidebar sidebar-main" before="main">
+                    <container name="sidebar.main" as="sidebar_main" label="Sidebar Main">
+                        <block template="Peteleco_Movie::sidebar.phtml"/>
+                    </container>
+                </container>
+            </referenceContainer>
+
+            <block name="movie_list" class="Peteleco\Movie\Block\ListMovies" template="list_movies.phtml">
+                <arguments>
+                    <argument name="label" xsi:type="string">Available Movies</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

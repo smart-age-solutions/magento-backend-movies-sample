@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Peteleco\Movie\Api\MovieRepositoryInterface"
+                type="Peteleco\Movie\Model\ResourceModel\MovieRepository" />
+    <preference for="Peteleco\Movie\Api\Data\MovieInterface" type="Peteleco\Movie\Model\Data\Movie" />
+    <preference for="Magento\Customer\Api\Data\AttributeMetadataInterface"
+                type="Magento\Customer\Model\Data\AttributeMetadata" />
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="movie_movies_grid_data_source" xsi:type="string">Peteleco\Movie\Model\ResourceModel\Movie\Grid\Collection</item>
+                <item name="movie_movie_favorite_grid_data_source" xsi:type="string">Peteleco\Movie\Model\ResourceModel\MovieFavorite\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Framework\Webapi\ServiceTypeToEntityTypeMap">
+        <arguments>
+            <argument name="serviceTypeToEntityTypeMap" xsi:type="array">
+                <item name="Peteleco\Movie\Api\Data\MovieInterface" xsi:type="const">Peteleco\Movie\Api\MovieMetadataInterface::ENTITY_TYPE_MOVIE</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Peteleco\Movie\Model\Movie\NotificationStorage">
+        <arguments>
+            <argument name="cache" xsi:type="object">Peteleco\Movie\Model\Cache\Type\Notification</argument>
+        </arguments>
+    </type>
+</config>

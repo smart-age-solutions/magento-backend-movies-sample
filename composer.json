@@ -1,0 +1,30 @@
+{
+  "name": "peteleco/movies",
+  "description": "Custom module for magento 2.",
+  "type": "magento2-module",
+  "version": "3.0.0",
+  "license": [
+    "OSL-3.0",
+    "AFL-3.0"
+  ],
+  "require": {
+    "php": "~7.1.3||~7.2.0||~7.3.0"
+  },
+  "authors": [
+    {
+      "name": "Leonardo",
+      "email": "ldiascarmo@gmail.com",
+      "role": "Developer"
+    }
+  ],
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Peteleco\\Movie\\": ""
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}

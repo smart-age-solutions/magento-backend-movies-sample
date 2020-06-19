@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Peteleco_Movie::movie" title="Movie"
+             module="Peteleco_Movie" resource="Peteleco_Movie::movie"
+             translate="title" sortOrder="3" action="movie"/>
+    </menu>
+</config>

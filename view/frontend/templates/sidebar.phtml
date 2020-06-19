@@ -1,0 +1,15 @@
+<div class="bg-gray-200 py-4  max-w-xs">
+    <div class="px-2 py-4">
+        <form action="<?php echo $block->getUrl('movie')?>" type="GET">
+            <input id="search" type="text" name="q" value="" placeholder="Search movies here..." class="input-text" maxlength="128" role="combobox" aria-haspopup="false" aria-autocomplete="both" autocomplete="off" aria-expanded="false">
+        </form>
+
+    </div>
+    <ul class="nav items">
+        <li class="nav item"><a
+
+                href="<?php echo $block->getUrl('movie')?>"
+                class="hover:bg-gray-300 inline-block px-2 py-1 w-full">All movies</a></li>
+        <li class="nav item"><a href="<?php echo $block->getUrl('movie/favorite')?>" class="hover:bg-gray-300 inline-block px-2 py-1 w-full">My movies</a></li>
+    </ul>
+</div>
